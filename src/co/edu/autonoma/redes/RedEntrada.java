@@ -11,8 +11,10 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 /**
+ * Realiza y gestiona la recepcion de mensajes
  *
- * @author nikof
+ * @author Nicolas Forero
+ * @author Leandra Builes
  */
 public class RedEntrada extends Thread{
     
@@ -27,6 +29,9 @@ public class RedEntrada extends Thread{
         this.interpreteMensajes = new InterpreteMensajes();
     }
     
+    /**
+     * espera por un mensaje del servidor y posteriormente lo envia al interprete
+     */
     @Override
     public void run(){
         

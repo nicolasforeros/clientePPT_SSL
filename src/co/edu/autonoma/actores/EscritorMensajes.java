@@ -10,8 +10,10 @@ import java.io.StringWriter;
 import org.json.simple.JSONObject;
 
 /**
+ * Escribe los mensajes que saldran hacia el servidor
  *
- * @author nikof
+ * @author Nicolas Forero
+ * @author Leandra Builes
  */
 public class EscritorMensajes {
     String nombreJugador;
@@ -28,6 +30,13 @@ public class EscritorMensajes {
         this.obj.put("jugador", this.nombreJugador);
     }
 
+    /**
+     * Segun una jugada dada, devuelve el mensaje que sigue los protocolos de
+     * comunicacion del juego que será enviado al servidor
+     * 
+     * @param jugada
+     * @return el mensaje que será enviado
+     */
     String escribirMensaje(int jugada) {
         this.obj.put("jugada", jugada);
         

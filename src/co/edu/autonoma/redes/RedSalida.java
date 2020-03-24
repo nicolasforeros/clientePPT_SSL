@@ -9,8 +9,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
+ * Realiza la salida de mensajes al servidor
  *
- * @author nikof
+ * @author Nicolas Forero
+ * @author Leandra Builes
  */
 public class RedSalida {
     private DataOutputStream out;

@@ -11,8 +11,10 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
+ * Interpreta los mensajes entrantes y efectua una accion en el juego
  *
- * @author nikof
+ * @author Nicolas Forero
+ * @author Leandra Builes
  */
 public class InterpreteMensajes {
     
@@ -28,6 +30,12 @@ public class InterpreteMensajes {
         this.juego = juego;
     }
 
+    /**
+     * Interpreta el mensaje dado, y de acuerdo a este realiza una accion en el
+     * juego
+     * 
+     * @param mensajeIn 
+     */
     public void interpretarMensaje(String mensajeIn) {
         JSONObject obj;
         String jugador1 = "";

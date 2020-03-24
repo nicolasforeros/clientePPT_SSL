@@ -8,8 +8,10 @@ package co.edu.autonoma.actores;
 import guippt.Login;
 
 /**
- *
- * @author nikof
+ * Clase principal del cliente, se crea el jugador y se habilita el login
+ * @author Nicolas Forero Segovia
+ * @author Leandra Builes
+ * @version 1.1
  */
 public class PrincipalJuego {
     

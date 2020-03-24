@@ -17,8 +17,11 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
 /**
+ * Actor principal del juego, se puede conectar a una sesion de juego y jugar 
+ * piedra papel o tijera
  *
- * @author nikof
+ * @author Nicolas Forero Segovia
+ * @author Leandra Builes
  */
 public class Jugador {
     
@@ -43,6 +46,11 @@ public class Jugador {
         this.escritor = new EscritorMensajes();
     }
     
+    /**
+     * Realiza la conexión al servidor, segun la ip de ipServidor del jugador
+     * 
+     * @return true si la conexión fue exitosa, false de lo contrario
+     */
     public boolean conectarAServidor(){
         
         int serverPort = 9090;
@@ -77,6 +85,11 @@ public class Jugador {
         return true;
     }
     
+    /**
+     * Se inicializa la red para recibir mensajes del juego
+     * 
+     * @param juego, el cual cambiará conforme pase la partida
+     */
     public void iniciarRedEntrada(InterfazJuego juego){
         
         System.out.println("JUGADOR=> Inicializando red de entrada");
@@ -117,30 +130,45 @@ public class Jugador {
         this.ipServidor = ipServidor;
     }
 
+    /**
+     * Juega piedra en la sesion de juego
+     */
     public void jugarPiedra() {
         String mensajeEnviar = this.escritor.escribirMensaje(InterfazJuego.PIEDRA);
         
         this.redSalida.enviarMensaje(mensajeEnviar);
     }
 
+    /**
+     * Juega papel en la sesion de juego
+     */
     public void jugarPapel() {
         String mensajeEnviar = this.escritor.escribirMensaje(InterfazJuego.PAPEL);
         
         this.redSalida.enviarMensaje(mensajeEnviar);    
     }
 
+    /**
+     * Juega tijeras en la sesion de juego
+     */
     public void jugarTijeras() {
         String mensajeEnviar = this.escritor.escribirMensaje(InterfazJuego.TIJERA);
         
         this.redSalida.enviarMensaje(mensajeEnviar);
     }
 
+    /**
+     * Envia al servidor mensaje de que se empieza una nueva partida
+     */
     public void enviarMensajeNuevaPartida() {
         String mensajeEnviar = this.escritor.escribirMensaje(InterfazJuego.NUEVA_PARTIDA);
         
         this.redSalida.enviarMensaje(mensajeEnviar);
     }
 
+    /**
+     * Envia al servidor mensaje de que se termina la partida y la sesion
+     */
     public void enviarMensajeTerminarPartida() {
         String mensajeEnviar = this.escritor.escribirMensaje(InterfazJuego.TERMINAR);
         
